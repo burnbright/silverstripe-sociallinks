@@ -1,3 +1,3 @@
 [submodule "images/icons"]
 	path = images/icons
-	url = https://github.com/burnbright/socialmediaicons
+url=git@github.com:burnbright/socialmediaicons.git

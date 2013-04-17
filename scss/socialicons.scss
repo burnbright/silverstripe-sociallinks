@@ -1,13 +1,13 @@
-@import "../images/icons/size16/*.png";
+@import "icons/size16/*.png";
 @include all-size16-sprites;
 
-@import "../images/icons/size24/*.png";
+@import "icons/size24/*.png";
 @include all-size24-sprites;
 
-@import "../images/icons/size32/*.png";
+@import "icons/size32/*.png";
 @include all-size32-sprites;
 
-@import "../images/icons/size48/*.png";
+@import "icons/size48/*.png";
 @include all-size48-sprites;
 
 .icon{
