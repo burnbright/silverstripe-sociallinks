@@ -1,12 +1,12 @@
 # Social Links
 
-A quick and easy way to store and retrieve social media links +icons!
-
+A quick and easy way to store, retrieve, and style social media links.
 
 ## Supported social networks
 
 See the `/networklist` file.
 
-## Thanks To
+## A bunch of icons
 
- * https://github.com/paulrobertlloyd/socialmediaicons - icons
+Here is a git repo with lots of icons that the "network list" was sourced from.
+https://github.com/paulrobertlloyd/socialmediaicons

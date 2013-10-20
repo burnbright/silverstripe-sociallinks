@@ -5,7 +5,7 @@ class SocialLink extends DataObject{
 	static $db = array(
 		"Name" => "Varchar",
 		"Identifier" => "Varchar",
-		"URL" => "Varchar" 	
+		"URL" => "Varchar(500)" 	
 	);
 	
 	static $has_one = array(
@@ -20,24 +20,10 @@ class SocialLink extends DataObject{
 	}
 	
 	static function dropdown($name = "SocialLinks", $title = "Social Links"){
-		$source = file(SOCIALLINKS_PATH."/networklist");
+		$source = file(SOCIALLINKS_PATH."/networklist", FILE_IGNORE_NEW_LINES);
 		asort($source);
-		return DropdownField::create($name, $title,array_combine($source, $source));
-	}
-	
-}
-
-class SiteConfig_SocialLinks extends DataExtension{
-	
-	static $many_many =  array(
-		'SocialNetworks' => 'SocialLink',
-	);
-	
-	function updateCMSFields(FieldList $fields){
-		
-		$config = GridFieldConfig_RelationEditor::create();
-		$fields->addFieldToTab("Root.SocialNetworks", new GridField("SocialNetworks","Social Networks",$this->owner->SocialNetworks(),$config));
-		
+		return DropdownField::create($name, $title,array_combine($source, $source))
+			->setHasEmptyDefault(true);
 	}
 	
 }
