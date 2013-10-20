@@ -15,5 +15,8 @@
     },
     "suggests": {
         "ajshort/silverstripe-gridfieldextensions": "dev-master"
+    },
+    "extra": {
+        "installer-name": "sociallinks"
     }
 }
