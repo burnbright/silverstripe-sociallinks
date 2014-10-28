@@ -1,0 +1,69 @@
+SocialLink:
+  networks_default:
+    adn: Adn
+    aim: AIM
+    amazon: Amazon
+    bbcid: Bbcid
+    behance: Behance
+    creativecommons: 'Creative Commons'
+    delicious: Delicious
+    digg: Digg
+    dopplr: Dopplr
+    dribbble: Dribble
+    email: Email
+    etsy: Etsy
+    facebook: Facebook
+    feed: Feed
+    ffffound: Ffffound
+    fivehundredpx: 500px
+    flickr: Flickr
+    forrst: Forrst
+    foursquare: Foursquare
+    geotag: Geotag
+    getsatisfaction: 'Get Satisfaction'
+    github: GitHub
+    goodreads: Goodreads
+    google: Google
+    googleplus: Google+
+    huffduffer: Huffduffer
+    identica: Identica
+    imdb: IMDb
+    instagram: Instagram
+    lanyrd: Lanyrd
+    lastfm: Lastfm
+    linkedin: Linkedin
+    meetup: Meetup
+    microsoft: Microsoft
+    myspace: Myspace
+    newsvine: Newsvine
+    nikeplus: Nike+
+    orkut: Orkut
+    pinboard: Pinboard
+    pintrest: Pintrest
+    posterous: Posterous
+    rdio: Rdio
+    readability: Readability
+    readernaut: Readernaut
+    reddit: Reddit
+    share: Share
+    skype: Skype
+    slideshare: SlideShare
+    soundcloud: SoundCloud
+    speakerdeck: 'Speaker Deck'
+    spotify: Spotify
+    stackoverflow: 'Stack Overflow'
+    stumbleupon: StumbleUpon
+    thisismyjam: 'This is my jam'
+    tumblr: Tumblr
+    twitter: Twitter
+    vcard: Vcard
+    vimeo: Vimeo
+    website: Website
+    wikipedia: Wikipedia
+    xbox: Xbox
+    xing: Xing
+    yahoo: Yahoo
+    yelp: Yelp
+    youtube: YouTube
+    zerply: Zerply
+    zootool: Zootool

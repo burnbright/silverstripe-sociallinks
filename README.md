@@ -10,3 +10,13 @@ See the `/networklist` file.
 
 Here is a git repo with lots of icons that the "network list" was sourced from.
 https://github.com/paulrobertlloyd/socialmediaicons
+
+## Member extension
+
+Add the `SocialLinkMemberExtension` extension to Member to allow each member to have multiple extensions.
+
+```
+Member:
+    extensions:
+        - SocialLinkMemberExtension
+```

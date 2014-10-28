@@ -14,7 +14,8 @@
         "silverstripe/framework": "~3.1"
     },
     "suggests": {
-        "ajshort/silverstripe-gridfieldextensions": "dev-master"
+        "ajshort/silverstripe-gridfieldextensions": "dev-master",
+        "burnbright/silverstripe-listeditor": "*"
     },
     "extra": {
         "installer-name": "sociallinks"

@@ -2,28 +2,67 @@
 
 class SocialLink extends DataObject{
 	
-	static $db = array(
+	private static $db = array(
 		"Name" => "Varchar",
 		"Identifier" => "Varchar",
 		"URL" => "Varchar(500)" 	
 	);
 	
-	static $has_one = array(
+	private static $has_one = array(
 		"Parent" => "SiteConfig"	
 	);
+
+	public static function networks(){
+		$networks = self::config()->networks;
+		return $networks ? $networks : self::config()->networks_default;
+	}
+
+	public static function dropdown($name = "SocialLinks", $title = "Social Links", $networks = null){
+		//fallback to stored list
+		$networks = $networks ? $networks : self::networks();
+		return DropdownField::create($name, $title, $networks);
+	}
 	
-	function getCMSFields(){
+	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->insertBefore(self::dropdown("Identifier","Network"), "Name");
+		$fields->push(self::dropdown("Identifier", "Network"));
 		$fields->removeByName("ParentID");
+
+		return $fields;
+	}
+
+	public function getFrontEndFields($params = null) {
+		$fields = parent::getFrontEndFields($params);
+		$fields->removeByName("Identifier");
+		$fields->removeByName("ParentID");
+		$fields->removeByName("Name");
+		$fields->fieldByName('URL')->setAttribute("Placeholder", "https://");
+		$fields->unshift(self::dropdown("Identifier", "Network"));
+
 		return $fields;
 	}
 	
-	static function dropdown($name = "SocialLinks", $title = "Social Links"){
-		$source = file(SOCIALLINKS_PATH."/networklist", FILE_IGNORE_NEW_LINES);
-		asort($source);
-		return DropdownField::create($name, $title,array_combine($source, $source))
-			->setHasEmptyDefault(true);
+	public function getName(){
+		if($name = $this->getField("Name")){
+			return $name;
+		}
+		$networks = self::networks();
+		if($this->Identifier && isset($networks[$this->Identifier])){
+			return $networks[$this->Identifier];
+		}
+	}
+
+	/**
+	 * Never allow identifier to be set back to empty
+	 */
+	public function saveIdentifier($identifier){
+		if($identifier){
+			$this->Identifier = $identifier;
+		}
+	}
+
+	public function getTitle(){
+		return $this->getName();
 	}
 	
 }
