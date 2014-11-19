@@ -3,7 +3,7 @@
 		<% loop SiteConfig.SocialLinks.sort(Sort) %>
 		    <li class="sociallinks_network $Identifier">
 				<% if URL %>
-					<a class="sociallinks_link" href="$URL">
+					<a class="sociallinks_link" href="$URL.URL">
 				<% end_if %>
 					<% if Identifier %>
 						<i class="sociallinks_icon $Identifier"></i>
