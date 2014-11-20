@@ -36,8 +36,8 @@ class SocialLink extends DataObject{
 		$fields->removeByName("Identifier");
 		$fields->removeByName("ParentID");
 		$fields->removeByName("Name");
-		$fields->fieldByName('URL')->setAttribute("Placeholder", "https://");
 		$fields->unshift(self::dropdown("Identifier", "Network"));
+		$this->extend('updateFrontEndFields', $fields);
 
 		return $fields;
 	}
@@ -63,6 +63,22 @@ class SocialLink extends DataObject{
 
 	public function getTitle(){
 		return $this->getName();
+	}
+
+	public function canCreate($member = null) {
+		return true;
+	}
+
+	public function canView($member = null) {
+		return true;
+	}
+
+	public function canEdit($member = null) {
+		return true;
+	}
+
+	public function canDelete($member = null) {
+		return true;
 	}
 	
 }
