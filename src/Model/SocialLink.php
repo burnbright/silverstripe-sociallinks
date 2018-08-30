@@ -13,10 +13,11 @@ class SocialLink
     private static $db = [
         "Name" => "Varchar",
         "Identifier" => "Varchar",
-        "URL" => "Varchar(500)"
+        "URL" => "Varchar(500)",
+        'Sort' => 'Int'
     ];
-    private static $belongs_many_many = [
-        "Parent" => SiteConfig::class
+    private static $has_one = [
+        "SiteConfig" => SiteConfig::class
     ];
 
     public static function networks() {
@@ -33,7 +34,7 @@ class SocialLink
     public function getCMSFields() {
         $fields = parent::getCMSFields();
         $fields->push(self::dropdown("Identifier", "Network"));
-        $fields->removeByName("ParentID");
+        $fields->removeByName("SiteConfigID");
 
         return $fields;
     }
@@ -41,7 +42,7 @@ class SocialLink
     public function getFrontEndFields($params = null) {
         $fields = parent::getFrontEndFields($params);
         $fields->removeByName("Identifier");
-        $fields->removeByName("ParentID");
+        $fields->removeByName("SiteConfigID");
         $fields->removeByName("Name");
         $fields->unshift(self::dropdown("Identifier", "Network"));
 

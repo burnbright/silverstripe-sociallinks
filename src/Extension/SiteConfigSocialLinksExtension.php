@@ -11,13 +11,8 @@ use SilverStripe\ORM\DataExtension;
 class SiteConfigSocialLinksExtension
         extends DataExtension {
 
-    public static $many_many = [
+    private static $has_many = [
         'SocialLinks' => SocialLink::class
-    ];
-    public static $many_many_extraFields = [
-        'SocialLinks' => [
-            'Sort' => 'Int'
-        ]
     ];
 
     public function updateCMSFields(FieldList $fields) {
