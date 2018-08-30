@@ -7,13 +7,17 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\Tab;
 use SilverStripe\ORM\DataExtension;
-use function _t;
 
 class SiteConfigSocialLinksExtension
         extends DataExtension {
 
-    public static $has_many = [
+    public static $many_many = [
         'SocialLinks' => SocialLink::class
+    ];
+    public static $many_many_extraFields = [
+        'SocialLinks' => [
+            'Sort' => 'Int'
+        ]
     ];
 
     public function updateCMSFields(FieldList $fields) {

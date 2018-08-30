@@ -15,7 +15,7 @@ class SocialLink
         "Identifier" => "Varchar",
         "URL" => "Varchar(500)"
     ];
-    private static $has_one = [
+    private static $belongs_many_many = [
         "Parent" => SiteConfig::class
     ];
 
