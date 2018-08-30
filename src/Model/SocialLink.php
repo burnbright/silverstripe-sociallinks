@@ -1,33 +1,36 @@
-<?php 
+<?php
 
-class SocialLink extends DataObject
-{
-    
-    private static $db = array(
+namespace Burnbright\SocialLinks;
+
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\SiteConfig\SiteConfig;
+
+class SocialLink
+        extends DataObject {
+
+    private static $table_name = 'SocialLink';
+    private static $db = [
         "Name" => "Varchar",
         "Identifier" => "Varchar",
         "URL" => "Varchar(500)"
-    );
-    
-    private static $has_one = array(
-        "Parent" => "SiteConfig"
-    );
+    ];
+    private static $has_one = [
+        "Parent" => SiteConfig::class
+    ];
 
-    public static function networks()
-    {
+    public static function networks() {
         $networks = self::config()->networks;
         return $networks ? $networks : self::config()->networks_default;
     }
 
-    public static function dropdown($name = "SocialLinks", $title = "Social Links", $networks = null)
-    {
+    public static function dropdown($name = "SocialLinks", $title = "Social Links", $networks = null) {
         //fallback to stored list
         $networks = $networks ? $networks : self::networks();
         return DropdownField::create($name, $title, $networks);
     }
-    
-    public function getCMSFields()
-    {
+
+    public function getCMSFields() {
         $fields = parent::getCMSFields();
         $fields->push(self::dropdown("Identifier", "Network"));
         $fields->removeByName("ParentID");
@@ -35,23 +38,23 @@ class SocialLink extends DataObject
         return $fields;
     }
 
-    public function getFrontEndFields($params = null)
-    {
+    public function getFrontEndFields($params = null) {
         $fields = parent::getFrontEndFields($params);
         $fields->removeByName("Identifier");
         $fields->removeByName("ParentID");
         $fields->removeByName("Name");
         $fields->unshift(self::dropdown("Identifier", "Network"));
+
         $this->extend('updateFrontEndFields', $fields);
 
         return $fields;
     }
-    
-    public function getName()
-    {
+
+    public function getName() {
         if ($name = $this->getField("Name")) {
             return $name;
         }
+
         $networks = self::networks();
         if ($this->Identifier && isset($networks[$this->Identifier])) {
             return $networks[$this->Identifier];
@@ -61,35 +64,30 @@ class SocialLink extends DataObject
     /**
      * Never allow identifier to be set back to empty
      */
-    public function saveIdentifier($identifier)
-    {
+    public function saveIdentifier($identifier) {
         if ($identifier) {
             $this->Identifier = $identifier;
         }
     }
 
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->getName();
     }
 
-    public function canCreate($member = null)
-    {
+    public function canCreate($member = null, $context = array()) {
         return true;
     }
 
-    public function canView($member = null)
-    {
+    public function canView($member = null) {
         return true;
     }
 
-    public function canEdit($member = null)
-    {
+    public function canEdit($member = null) {
         return true;
     }
 
-    public function canDelete($member = null)
-    {
+    public function canDelete($member = null) {
         return true;
     }
+
 }
