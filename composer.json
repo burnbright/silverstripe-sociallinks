@@ -1,8 +1,9 @@
 {
     "name": "burnbright/silverstripe-sociallinks",
     "description": "A quick and easy way to store,retrieve, and style social media links",
+    "type": "silverstripe-vendormodule",
     "license": "BSD-2",
-    "type": "silverstripe-module",
+    "keywords": ["silverstripe", "social", "facebook", "twitter", "instagram"],
     "authors": [
         {
             "name": "Jeremy Shipman",
@@ -11,7 +12,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "silverstripe/framework": "~3.1"
+        "silverstripe/framework": "^4",
+        "silverstripe/cms": "^4",
+        "silverstripe/vendor-plugin": "^1.0"
     },
     "suggests": {
         "ajshort/silverstripe-gridfieldextensions": "dev-master",
