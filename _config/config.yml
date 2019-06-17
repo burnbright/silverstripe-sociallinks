@@ -1,0 +1,7 @@
+---
+Name: sociallinks
+---
+
+Silverstripe\SiteConfig\SiteConfig:
+  extensions:
+    - Burnbright\SocialLinks\SiteConfigSocialLinksExtension

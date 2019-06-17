@@ -1,4 +1,4 @@
-SocialLink:
+Burnbright\SocialLinks\SocialLink:
   networks_default:
     adn: Adn
     aim: AIM
