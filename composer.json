@@ -10,14 +10,13 @@
             "email": "jeremy@burnbright.net"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "silverstripe/framework": "^4",
         "silverstripe/cms": "^4",
         "silverstripe/vendor-plugin": "^1.0"
     },
     "suggests": {
-        "ajshort/silverstripe-gridfieldextensions": "dev-master",
+        "ajshort/silverstripe-gridfieldextensions": "*",
         "burnbright/silverstripe-listeditor": "*"
     },
     "extra": {
