@@ -15,7 +15,7 @@ Being able to configure the list of social networks means you can align the list
 You can configure the list of available social networks by adding a yaml config, as such:
 
 ```yaml
-SocialLink:
+Burnbright\SocialLinks\SocialLink:
   networks:
     facebook: Facebook
     linkedin: LinkedIn
@@ -31,7 +31,7 @@ If you don't specify a configuration of networks, then a default list will kick 
 Add the `SocialLinkMemberExtension` extension to Member to allow each member to have multiple extensions.
 
 ```yaml
-Member:
+SilverStripe\Security\Member:
     extensions:
         - SocialLinkMemberExtension
 ```
